@@ -92,7 +92,7 @@
             path="/Login"
             forward="/pages/Login.jsp" />
 
-		<!-- NextPage LoginAction.java -->
+		<!-- Seiya Waiter NextPage LoginAction.java -->
         <action path="/LoginAuth"
                     type="action.LoginAction"
                     name="LoginActionForm"

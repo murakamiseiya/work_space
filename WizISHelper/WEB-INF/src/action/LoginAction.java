@@ -75,12 +75,15 @@ public class LoginAction extends Action {
 		    	saveErrors(req, errors);
 		    	logger.info("パスワードが違います。");
 		    return (mapping.findForward("fail"));
+		    //ここでstruts-config.xmlのnameがfail(101ページ)に戻ります。
 		} else {
 			//ログイン成功の処理を行う
 			//セッションにidを設定する
 		    session.setAttribute("id", id);
 	    	logger.info("ログイン成功です。");
 		    return (mapping.findForward("success"));
+		    //ここでstruts-config.xmlのnameがsuccess(100ページ)に戻ります。
+
 		}
 	 }
 }
