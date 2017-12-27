@@ -1,6 +1,6 @@
 /**********************************************************************
- * ファイル：LoginActionForm.java
- * 内容：ログイン時のデータ管理
+ * ファイル：appBeans.java
+ * 内容：tomcat起動中にアプリケーションにて起きたデータを管理
  *
  * 更新履歴
  * 新規作成 村上 聖矢 2017/12/26
@@ -9,15 +9,13 @@
  * 更新者　　村上 聖矢
  * 更新日付  2017/12/26
 **********************************************************************/
-package actionForm;
-
-import org.apache.struts.action.ActionForm;
+package beans;
 
 /**********************************************************************
- * public class LoginAction extends Action
- * 用途:Login.jspのデータを取得保持するクラス
+ * public class appBeans extends Content
+ * 用途:アプリケーション起動中(tomcat起動中)のデータを管理するクラス
 **********************************************************************/
-public class LoginActionForm extends ActionForm {
+public class appBeans extends Content {
 
 	//ルール
 	//１． property名 と メンバ変数名  は同じものにデータが入る
@@ -30,17 +28,17 @@ public class LoginActionForm extends ActionForm {
 	//※変数とアクセッサでセットと覚える
 
 
-    private String id;		//ユーザID
-    private String pass;	//パスワード
+    private String acessCount = "0";
 
     //--------------------------アクセッサ---------------------------------------------
 
-    //id
-    public void setId(String id) {this.id = id;}
-    public String getId() {return id;}
+    //acessCount
+    public void setacessCount(String acessCount) {
+    	Integer thisaccesCount = Integer.parseInt(this.acessCount);
+    	thisaccesCount = thisaccesCount + Integer.parseInt(acessCount);
+    	this.acessCount = thisaccesCount.toString() ;
 
-    //pass
-    public void setPass(String pass) {this.pass = pass;}
-    public String getPass() {return pass;}
+    }
+    public String getacessCount() {return acessCount;}
 
 }

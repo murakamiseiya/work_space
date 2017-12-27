@@ -1,3 +1,15 @@
+<%---------------------------------------------------------------------
+ * ファイル：Login.jsp
+ * 内容：ログインページ
+ *
+ * 更新履歴
+ * 新規作成 村上 聖矢 2017/12/26
+ *
+ *
+ * 更新者　　村上 聖矢
+ * 更新日付  2017/11/26
+----------------------------------------------------------------------%>
+
 
 <%@ taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
 <%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
@@ -27,5 +39,9 @@
 		    <html:reset value="リセット"/>
 		</html:form>
 
+		<%--tomcatの起動後にずっとデータが残るBeans --%>
+		<jsp:useBean id="appbeans" scope="application" class="beans.appBeans" />
+		<p>アクセス数：<jsp:getProperty name="appbeans" property="acessCount" /></p>
+		<p>※index.jspを通ってきたページのみカウント(URL:http://localhost:8080/WizISHelper/)</p>
 	</body>
 </html:html>
